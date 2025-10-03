@@ -43,7 +43,7 @@ def sales_by_store_by_period(df):
     median_period_by_store = df.groupby('store_id').apply(
         lambda group: store_periods(group).groupby(
             'period_group'
-        )['sales_volume'].median(),
+        )['sales_volume'].sum(),
         include_groups=False
     )
     return median_period_by_store
